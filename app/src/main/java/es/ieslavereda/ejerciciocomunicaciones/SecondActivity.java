@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.Serializable;
+
 public class SecondActivity extends AppCompatActivity {
     private TextView mensajeTV;
     private EditText nombreET;
@@ -34,11 +36,12 @@ public class SecondActivity extends AppCompatActivity {
 
         aceptarB.setOnClickListener(view -> {
             String nombre = nombreET.getText().toString();
-            int edad = Integer.parseInt(edadET.getText().toString());
+            int edad = 0;
+            if (!edadET.getText().toString().equals(""))
+                edad = Integer.parseInt(edadET.getText().toString());
             Intent intent = new Intent();
-            intent.putExtra("nombre", nombre);
-            intent.putExtra("edad", edad);
-            intent.putExtra("actividad",s);
+            Usuario usuario = new Usuario(nombre,edad,s);
+            intent.putExtra("usuario", usuario);
             setResult(RESULT_OK,intent);
             finish();
         });
