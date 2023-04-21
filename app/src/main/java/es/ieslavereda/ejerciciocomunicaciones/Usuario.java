@@ -1,6 +1,8 @@
 package es.ieslavereda.ejerciciocomunicaciones;
 
-public class Usuario {
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
     private String nombre;
     private int edad;
     private String actividad;

@@ -81,10 +81,7 @@ public class MainActivity extends AppCompatActivity {
                         resultadoTV.setText(resultado);
                     } else if (result.getResultCode() == Activity.RESULT_OK) {
                         Intent data = result.getData();
-                        String nombre = data.getExtras().getString("nombre");
-                        int edad = data.getExtras().getInt("edad");
-                        String actividad = data.getExtras().getString("actividad");
-                        Usuario usuario = new Usuario(nombre, edad, actividad);
+                        Usuario usuario = (Usuario) data.getExtras().getSerializable("usuario");
                         usuarios.add(usuario);
                         resultadoTV.setText(usuario.toString());
                     }
