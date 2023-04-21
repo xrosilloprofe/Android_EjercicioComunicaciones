@@ -12,7 +12,6 @@ public class Usuario implements Serializable {
         this.edad = edad;
         this.actividad = actividad;
     }
-
     @Override
     public String toString() {
         return nombre + " - " + edad + " - " + actividad;
