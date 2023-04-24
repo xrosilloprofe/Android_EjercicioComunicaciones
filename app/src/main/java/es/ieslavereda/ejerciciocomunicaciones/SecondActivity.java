@@ -30,9 +30,9 @@ public class SecondActivity extends AppCompatActivity {
         cancelarB = findViewById(R.id.cancelarButton);
 
         Bundle extras = getIntent().getExtras();
-        String s = extras.getString("actividad");
+        String actividad = extras.getString("actividad");
 
-        mensajeTV.setText("Tu actividad preferida es: " + s + " introduce nombre completo y edad: ");
+        mensajeTV.setText("Tu actividad preferida es: " + actividad + " introduce nombre completo y edad: ");
 
         aceptarB.setOnClickListener(view -> {
             String nombre = nombreET.getText().toString();
@@ -40,7 +40,7 @@ public class SecondActivity extends AppCompatActivity {
             if (!edadET.getText().toString().equals(""))
                 edad = Integer.parseInt(edadET.getText().toString());
             Intent intent = new Intent();
-            Usuario usuario = new Usuario(nombre,edad,s);
+            Usuario usuario = new Usuario(nombre,edad,actividad);
             intent.putExtra("usuario", usuario);
             setResult(RESULT_OK,intent);
             finish();
